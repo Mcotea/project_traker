@@ -1,6 +1,6 @@
 from django.urls import path
 
-from .views import *
+from quality_control import views
 
 app_name = 'quality_control'
 
@@ -11,9 +11,12 @@ urlpatterns = [
     # path('bugs/<int:bug_id>/', views.bug_detail, name='bug_detail'),
     # path('features/<int:feature_id>/', views.feature_detail, name='feature_detail'),
 
-    path('', IndexView.as_view(), name='index'),
-    path('bugs/', bug_list, name='bug_list'),
-    path('features/', feature_list, name='feature_list'),
-    path('bugs/<int:bug_id>/', BugDetailView.as_view(), name='bug_detail'),
-    path('features/<int:feature_id>/', FeatureDetailView.as_view(), name='feature_detail'),
+    path('', views.IndexView.as_view(), name='index'),
+    path('bugs/', views.BugsListView.as_view(), name='bug_list'),
+    path('features/', views.FeaturesListView.as_view(), name='feature_list'),
+    path('bugs/<int:bug_id>/', views.BugDetailView.as_view(), name='bug_detail'),
+    path('features/<int:feature_id>/', views.FeatureDetailView.as_view(), name='feature_detail'),
+    path('bugs/new/', views.create_bug, name='create_bug'),
+    path('features/new/', views.create_feature, name='create_feature'),
+
 ]
