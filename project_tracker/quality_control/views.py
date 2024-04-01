@@ -37,11 +37,13 @@ class IndexView(View):
 class BugsListView(ListView):
     model = BugReport
     template_name = 'quality_control/bug_list.html'
+    context_object_name = 'bug'
 
 
 class FeaturesListView(ListView):
     model = FeatureRequest
     template_name = 'quality_control/feature_list.html'
+    context_object_name = 'feature'
 
 
 class BugDetailView(DetailView):
