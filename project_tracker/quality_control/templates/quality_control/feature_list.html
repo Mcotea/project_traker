@@ -6,7 +6,7 @@
 
 <ul>
     {% for feature in feature_list %}
-    <li>{{feature.title}}({{feature.status}}) ---> <a href="{% url 'quality_control:feature_detail' feature.id %}">{{ feature.title }}</a></li>
+    <li><a href="{% url 'quality_control:feature_detail' feature.id %}">{{ feature.title }}</a> - {{feature.status}}</li>
     {% endfor %}
 </ul>
 {% endblock %}

@@ -6,8 +6,7 @@
 
 <ul>
     {% for bug in bug_list %}
-    <li>{{bug.title}}({{bug.status}}) ---> <a href="{% url 'quality_control:bug_detail' bug.id %}">{{ bug.title }}</a>
-    </li>
+    <li><a href="{% url 'quality_control:bug_detail' bug.id %}">{{ bug.title }}</a> - {{bug.status}}</li>
     {% endfor %}
 </ul>
 {% endblock %}
