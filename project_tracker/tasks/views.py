@@ -13,7 +13,7 @@ def index(request):
 
 def projects_list(request):
     projects = Project.objects.all()
-    return render(request, 'tasks/projects.html', {'project_list': projects})
+    return render(request, 'tasks/projects_list.html', {'project_list': projects})
 
 
 def project_detail(request, project_id):
@@ -113,7 +113,7 @@ class ProjectCreateView(CreateView):
     model = Project
     form_class = ProjectForm
     template_name = 'tasks/project_create.html'
-    success_url = reverse_lazy('tasks:project_list')
+    success_url = reverse_lazy('tasks:projects_list')
 
 
 class TaskCreateView(CreateView):
